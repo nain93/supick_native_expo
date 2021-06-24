@@ -1,18 +1,21 @@
 import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import Welcome from "../screens/Welcome";
 import Login from "../screens/Login";
 import CreateAccount from "../screens/CreateAccount";
 
-const stack = createStackNavigator();
+const Stack = createStackNavigator();
 
 function LoggedOutNav() {
   return (
-    <Stack.Navigator>
-      <Stack.screen name="Welcome" component={Welcome} />
-      <Stack.screen name="Login" component={Login} />
-      <Stack.screen name="CreateAccount" component={CreateAccount} />
-    </Stack.Navigator>
+    <NavigationContainer>
+      <Stack.Navigator headerMode="screen">
+        <Stack.Screen name="Welcome" component={Welcome} />
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="CreateAccount" component={CreateAccount} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 

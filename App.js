@@ -5,6 +5,8 @@ import AppLoading from "expo-app-loading";
 import * as Font from "expo-font";
 import { Ionicons } from "@expo/vector-icons";
 import { Asset } from "expo-asset";
+import LoggedOutNav from "./navigators/LoggedOutNav";
+import landing from "./assets/landing.png";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -13,7 +15,7 @@ export default function App() {
   const preload = () => {
     const fontsToLoad = [Ionicons.font];
     const fontPromises = fontsToLoad.map((font) => Font.loadAsync(font));
-    const imagesToLoad = [require("./assets/landing.png")];
+    const imagesToLoad = [landing];
     const imagePromises = imagesToLoad.map((image) => Asset.loadAsync(image));
     return Promise.all([...fontPromises, ...imagePromises]);
   };
@@ -27,19 +29,5 @@ export default function App() {
       />
     );
   }
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+  return <LoggedOutNav />;
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
