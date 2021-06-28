@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useRef } from "react";
 import styled from "styled-components/native";
+import { Keyboard, TouchableWithoutFeedback } from "react-native";
 
 const Container = styled.View`
   flex: 1;
@@ -37,19 +38,31 @@ const NextLink = styled.Text`
 
 function Wallet({ navigation }) {
   const goToHome = () => navigation.navigate("Home");
+  const dismissKeyBoard = () => {
+    Keyboard.dismiss();
+  };
+
+  const nickNameRef = useRef();
+
+  const onNext = (nextOne) => {
+    nextOne?.current?.focus();
+  };
 
   return (
-    <Container>
-      <Text>환영합니다! PICKnPiCK에서 사용하실 닉네임을 설정해주세요.</Text>
-      <TextInput
-        placeholder="닉네임"
-        placeholderTextColor="#ffc000"
-        returnKeyLabel="next"
-      />
-      <LinkBox onPress={goToHome}>
-        <NextLink>다음</NextLink>
-      </LinkBox>
-    </Container>
+    <TouchableWithoutFeedback style={{ flex: 1 }} onPress={dismissKeyBoard}>
+      <Container>
+        <Text>환영합니다! PICKnPiCK에서 사용하실 닉네임을 설정해주세요.</Text>
+        <TextInput
+          ref={nickNameRef}
+          placeholder="닉네임"
+          placeholderTextColor="#ffc000"
+          returnKeyLabel="next"
+        />
+        <LinkBox onPress={goToHome}>
+          <NextLink>다음</NextLink>
+        </LinkBox>
+      </Container>
+    </TouchableWithoutFeedback>
   );
 }
 
