@@ -1,19 +1,45 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
+import {
+  createStackNavigator,
+  TransitionPresets,
+} from "@react-navigation/stack";
 import Welcome from "../screens/Welcome";
-import Login from "../screens/Login";
-import CreateAccount from "../screens/CreateAccount";
+import Home from "../screens/Home";
+import Wallet from "../screens/Wallet";
 
+const TransitionScreenOptions = {
+  ...TransitionPresets.SlideFromRightIOS,
+};
 const Stack = createStackNavigator();
 
 function LoggedOutNav() {
   return (
     <NavigationContainer>
-      <Stack.Navigator headerMode="screen">
-        <Stack.Screen name="Welcome" component={Welcome} />
-        <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="CreateAccount" component={CreateAccount} />
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Welcome"
+          options={{
+            headerTitle: false,
+            headerTransparent: true,
+          }}
+          component={Welcome}
+        />
+        <Stack.Screen
+          name="Wallet"
+          options={{
+            headerTitle: false,
+            headerTransparent: true,
+          }}
+          component={Wallet}
+        />
+        <Stack.Screen
+          name="Home"
+          options={{
+            headerTitle: false,
+          }}
+          component={Home}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
