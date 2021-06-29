@@ -4,6 +4,7 @@ import dummyData from "../../../data/dummyData";
 import Ad from "../../Components/Ad";
 import { ItemBox } from "../../Style";
 import FilterSection from "../../Components/FilterSection";
+import Icon from "react-native-vector-icons/Ionicons";
 
 const Container = styled.ScrollView`
   flex: 1;
@@ -39,6 +40,18 @@ const DescItem = styled.View`
 
 const DescText = styled.Text`
   color: white;
+`;
+
+const IconView = styled.View`
+  width: 50px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+`;
+
+const IconText = styled.Text`
+  color: white;
+  margin-left: 2px;
   font-weight: 700;
 `;
 
@@ -131,7 +144,16 @@ function Now() {
                   <ImageItem source={{ uri: `${item.img}` }} />
                   <DescItem>
                     <DescText>{item.name}</DescText>
-                    <DescText>{item.category}</DescText>
+                    <DescText>
+                      <IconView>
+                        <Icon name="heart" size={20} color="#eee" />
+                        <IconText>180</IconText>
+                      </IconView>
+                      <IconView>
+                        <Icon name="arrow-undo-sharp" size={20} color="#eee" />
+                        <IconText>60</IconText>
+                      </IconView>
+                    </DescText>
                   </DescItem>
                 </Item>
               );
@@ -141,7 +163,16 @@ function Now() {
                 <ImageItem source={{ uri: `${item.img}` }} />
                 <DescItem>
                   <DescText>{item.name}</DescText>
-                  <DescText>{item.category}</DescText>
+                  <DescText>
+                    <IconView>
+                      <Icon name="heart" size={20} color="#eee" />
+                      <IconText>180</IconText>
+                    </IconView>
+                    <IconView>
+                      <Icon name="arrow-undo-sharp" size={20} color="#eee" />
+                      <IconText>60</IconText>
+                    </IconView>
+                  </DescText>
                 </DescItem>
               </Item>
             );
