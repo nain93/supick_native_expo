@@ -9,3 +9,4 @@ npm i react-devtools
 npm i styled-components
 expo install react-native-appearance
 npm install react-hook-form
+npm install @react-navigation/material-top-tabs react-native-tab-view@^2.16.0

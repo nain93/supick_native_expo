@@ -1,16 +1,35 @@
 import React from "react";
-import { Text } from "react-native";
 import styled from "styled-components/native";
+import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
+import Now from "./pages/Now";
+import Fun from "./pages/Fun";
+import My from "./pages/My";
+
+const Tab = createMaterialTopTabNavigator();
 
 const Container = styled.View`
   flex: 1;
-  background-color: #ffc000;
 `;
 
 function Home() {
   return (
     <Container>
-      <Text>Home</Text>
+      <Tab.Navigator
+        swipeEnabled={true}
+        tabBarOptions={{
+          activeTintColor: "#eee",
+          labelStyle: { fontSize: 15 },
+          style: {
+            backgroundColor: "#ffc000",
+            marginTop: 35,
+          },
+          indicatorStyle: { backgroundColor: "#eee" },
+        }}
+      >
+        <Tab.Screen name="Now." component={Now} />
+        <Tab.Screen name="Fun." component={Fun} />
+        <Tab.Screen name="My." component={My} />
+      </Tab.Navigator>
     </Container>
   );
 }

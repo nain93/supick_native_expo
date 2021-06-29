@@ -37,8 +37,7 @@ const NextLink = styled.Text`
   color: white;
 `;
 
-function Wallet({ navigation }) {
-  const goToHome = () => navigation.navigate("Home");
+function Wallet() {
   const dismissKeyBoard = () => {
     Keyboard.dismiss();
   };
@@ -66,10 +65,11 @@ function Wallet({ navigation }) {
         <TextInput
           placeholder="닉네임"
           placeholderTextColor="#ffc000"
-          returnKeyLabel="next"
           onSubmitEditing={handleSubmit(onSubmit)}
           onChangeText={(text) => setValue("nickname", text)}
           autoCapitalize={"none"}
+          returnKeyLabel="next"
+          // autoFocus={true}
         />
         <LinkBox onPress={handleSubmit(onSubmit)}>
           <NextLink>다음</NextLink>
