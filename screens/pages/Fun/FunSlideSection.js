@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components/native";
 import Carousel from "react-native-snap-carousel";
 import dummyData from "../../../data/dummyData";

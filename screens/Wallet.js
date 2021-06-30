@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components/native";
 import { Keyboard, Platform, TouchableWithoutFeedback } from "react-native";
 import { useForm } from "react-hook-form";
@@ -43,10 +43,7 @@ function Wallet({ navigation }) {
     Keyboard.dismiss();
   };
 
-  // const nickNameRef = useRef();
-  // const onNext = (nextOne) => {
-  //   nextOne?.current?.focus();
-  // };
+  const nickNameRef = useRef();
 
   const { register, handleSubmit, setValue } = useForm();
   const onSubmit = (data) => navigation.navigate("Home");
@@ -54,6 +51,10 @@ function Wallet({ navigation }) {
   useEffect(() => {
     register("nickname", { required: true });
   }, [register]);
+
+  useEffect(() => {
+    nickNameRef?.current?.focus();
+  }, []);
 
   return (
     <TouchableWithoutFeedback
@@ -64,13 +65,13 @@ function Wallet({ navigation }) {
       <Container>
         <Text>환영합니다! PICKnPiCK에서 사용하실 닉네임을 설정해주세요.</Text>
         <TextInput
+          ref={nickNameRef}
           placeholder="닉네임"
           placeholderTextColor={colors.main}
           onSubmitEditing={handleSubmit(onSubmit)}
           onChangeText={(text) => setValue("nickname", text)}
           autoCapitalize={"none"}
           returnKeyLabel="next"
-          // autoFocus={true}
         />
         <LinkBox onPress={handleSubmit(onSubmit)}>
           <NextLink>다음</NextLink>
