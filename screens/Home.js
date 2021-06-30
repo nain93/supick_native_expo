@@ -4,6 +4,7 @@ import { createMaterialTopTabNavigator } from "@react-navigation/material-top-ta
 import Now from "./pages/Now";
 import Fun from "./pages/Fun";
 import My from "./pages/My";
+import { colors } from "../Style";
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -20,7 +21,7 @@ function Home() {
           activeTintColor: "#eee",
           labelStyle: { fontSize: 15 },
           style: {
-            backgroundColor: "#ffc000",
+            backgroundColor: colors.main,
             marginTop: 35,
           },
           indicatorStyle: { backgroundColor: "#eee" },

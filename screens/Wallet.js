@@ -2,10 +2,11 @@ import React, { useEffect } from "react";
 import styled from "styled-components/native";
 import { Keyboard, Platform, TouchableWithoutFeedback } from "react-native";
 import { useForm } from "react-hook-form";
+import { colors } from "../Style";
 
 const Container = styled.View`
   flex: 1;
-  background-color: #ffc000;
+  background-color: ${colors.main};
   justify-content: center;
   align-items: center;
 `;
@@ -37,7 +38,7 @@ const NextLink = styled.Text`
   color: white;
 `;
 
-function Wallet() {
+function Wallet({ navigation }) {
   const dismissKeyBoard = () => {
     Keyboard.dismiss();
   };
@@ -48,7 +49,7 @@ function Wallet() {
   // };
 
   const { register, handleSubmit, setValue } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => navigation.navigate("Home");
 
   useEffect(() => {
     register("nickname", { required: true });
@@ -64,7 +65,7 @@ function Wallet() {
         <Text>환영합니다! PICKnPiCK에서 사용하실 닉네임을 설정해주세요.</Text>
         <TextInput
           placeholder="닉네임"
-          placeholderTextColor="#ffc000"
+          placeholderTextColor={colors.main}
           onSubmitEditing={handleSubmit(onSubmit)}
           onChangeText={(text) => setValue("nickname", text)}
           autoCapitalize={"none"}

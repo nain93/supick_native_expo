@@ -11,3 +11,4 @@ expo install react-native-appearance
 npm install react-hook-form
 npm install @react-navigation/material-top-tabs react-native-tab-view@^2.16.0
 npm install --save react-native-vector-icons
+npm install --save react-native-snap-carousel

@@ -1,12 +1,12 @@
 import React from "react";
 import { View, Text } from "react-native";
 
-function Login() {
+const Upload = () => {
   return (
     <View>
-      <Text>Login</Text>
+      <Text></Text>
     </View>
   );
-}
+};
 
-export default Login;
+export default Upload;

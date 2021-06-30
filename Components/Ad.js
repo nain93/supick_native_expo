@@ -8,7 +8,6 @@ const Container = styled.View`
 
 const ImageItem = styled.Image`
   height: 150px;
-  border-radius: 15px;
 `;
 
 function Ad({ dummyData }) {
