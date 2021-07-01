@@ -3,10 +3,11 @@ import styled from "styled-components/native";
 import landing from "../assets/landing.png";
 import Carousel from "react-native-snap-carousel";
 import dummyData from "../data/dummyData";
+import { colors } from "../Style";
 
 const Container = styled.View`
   flex: 1;
-  background-color: #ffc000;
+  background-color: ${colors.main};
 `;
 
 const Logo = styled.Image`
@@ -20,14 +21,13 @@ const ConnectSection = styled.View`
 const GoToHome = styled.TouchableOpacity`
   border: 1px solid white;
   border-radius: 40px;
-  margin-top: 20px;
   padding: 15px 30px;
 `;
 
 const ConnectWallet = styled.TouchableOpacity`
   border: 1px solid white;
   border-radius: 40px;
-  margin-top: 20px;
+  margin-top: 5%;
   margin-bottom: 150px;
   padding: 15px 30px;
   background-color: white;
@@ -46,7 +46,7 @@ const WalletText = styled.Text`
 `;
 
 const SlideBtn = styled.TouchableOpacity`
-  margin-top: 100px;
+  margin: 40% 0px;
 `;
 
 const SlideImg = styled.Image`
@@ -73,7 +73,7 @@ function Welcome({ navigation }) {
         layout={"default"}
         renderItem={renderItem}
         data={dummyData.result.List1.data}
-        sliderWidth={400}
+        sliderWidth={415}
         itemWidth={300}
         loop={true}
       />

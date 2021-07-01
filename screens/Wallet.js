@@ -25,7 +25,7 @@ const TextInput = styled.TextInput`
 `;
 
 const LinkBox = styled.TouchableOpacity`
-  margin-top: 50px;
+  margin-top: 2%;
   width: 70%;
   height: 50px;
   padding: 13px 10px;
