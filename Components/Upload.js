@@ -1,13 +1,9 @@
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components/native";
 import { colors } from "../Style";
-import {
-  Keyboard,
-  Platform,
-  TouchableWithoutFeedback,
-  KeyboardAvoidingView,
-} from "react-native";
+import { Keyboard, Platform, TouchableWithoutFeedback } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import { useForm } from "react-hook-form";
 
 const Container = styled.View`
   padding: 0 20px;
@@ -85,41 +81,40 @@ const AddText = styled.Text`
   font-weight: 700;
 `;
 
-const KeyInput = styled.View`
-  height: 100px;
-`;
-
 const Upload = () => {
   const dismissKeyBoard = () => {
     Keyboard.dismiss();
   };
-  const handleAddBtn = () => {};
+
+  const { register, handleSubmit, setValue } = useForm();
+  const onSubmit = (data) => {
+    console.log(data);
+  };
 
   const TitleRef = useRef();
   const CotentRef = useRef();
   const TagRef = useRef();
 
+  // useEffect(() => {
+  //   TitleRef?.current?.focus();
+  // }, []);
+
   useEffect(() => {
-    TitleRef?.current?.focus();
-  }, []);
+    register("title", { required: true });
+    register("content", { required: true });
+    register("tag");
+  }, [register]);
 
   const handleFocus = (nextOne) => {
     nextOne?.current?.focus();
   };
-
-  const onVaild = (data) => {};
 
   return (
     <TouchableWithoutFeedback
       onPress={dismissKeyBoard}
       disabled={Platform.OS === "web"}
     >
-      {/* <KeyboardAvoidingView
-        behavior="padding"
-        keyboardVerticalOffset={50}
-        style={{ flex: 1 }}
-      > */}
-      <KeyboardAwareScrollView>
+      <KeyboardAwareScrollView contentContainerStyle={{ height: 700 }}>
         <Container>
           <TitleInput
             ref={TitleRef}
@@ -127,6 +122,7 @@ const Upload = () => {
             placeholderTextColor="rgba(0,0,0,0.4)"
             autoCapitalize={"none"}
             returnKeyType="next"
+            onChangeText={(text) => setValue("title", text)}
             onSubmitEditing={() => handleFocus(CotentRef)}
           />
 
@@ -144,6 +140,7 @@ const Upload = () => {
             placeholderTextColor="rgba(0,0,0,0.4)"
             autoCapitalize={"none"}
             returnKeyLabel="next"
+            onChangeText={(text) => setValue("content", text)}
             onSubmitEditing={() => handleFocus(TagRef)}
           />
           <TagInput
@@ -152,9 +149,11 @@ const Upload = () => {
             placeholderTextColor="rgba(0,0,0,0.4)"
             autoCapitalize={"none"}
             returnKeyLabel="next"
+            onChangeText={(text) => setValue("tag", text)}
+            onSubmitEditing={handleSubmit(onSubmit)}
           />
 
-          <AddBtn onPress={handleAddBtn(onVaild)}>
+          <AddBtn onPress={handleSubmit(onSubmit)}>
             <AddText>등록</AddText>
           </AddBtn>
         </Container>

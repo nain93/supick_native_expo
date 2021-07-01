@@ -8,6 +8,7 @@ import { colors } from "../Style";
 const Container = styled.View`
   flex: 1;
   background-color: ${colors.main};
+  align-items: center;
 `;
 
 const Logo = styled.Image`
@@ -22,15 +23,17 @@ const GoToHome = styled.TouchableOpacity`
   border: 1px solid white;
   border-radius: 40px;
   padding: 15px 30px;
+  width: 300px;
 `;
 
-const ConnectWallet = styled.TouchableOpacity`
+const GoToWallet = styled.TouchableOpacity`
   border: 1px solid white;
   border-radius: 40px;
   margin-top: 5%;
   margin-bottom: 150px;
   padding: 15px 30px;
   background-color: white;
+  width: 300px;
 `;
 
 const HomeText = styled.Text`
@@ -82,9 +85,9 @@ function Welcome({ navigation }) {
           <HomeText>나중에 월렛 생성하기</HomeText>
         </GoToHome>
 
-        <ConnectWallet onPress={goToWallet}>
+        <GoToWallet onPress={goToWallet}>
           <WalletText>지금 바로 월렛 연동</WalletText>
-        </ConnectWallet>
+        </GoToWallet>
       </ConnectSection>
     </Container>
   );

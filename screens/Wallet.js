@@ -52,9 +52,9 @@ function Wallet({ navigation }) {
     register("nickname", { required: true });
   }, [register]);
 
-  useEffect(() => {
-    nickNameRef?.current?.focus();
-  }, []);
+  // useEffect(() => {
+  //   nickNameRef?.current?.focus();
+  // }, []);
 
   return (
     <TouchableWithoutFeedback
