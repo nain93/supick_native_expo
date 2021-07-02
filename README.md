@@ -14,3 +14,4 @@ npm install --save react-native-vector-icons
 npm install --save react-native-snap-carousel
 npm install react-native-safe-area-context
 npm i react-native-keyboard-aware-scroll-view
+npm install react-native-deck-swiper --save

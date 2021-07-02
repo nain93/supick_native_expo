@@ -6,7 +6,7 @@ import dummyData from "../../../data/dummyData";
 
 const Container = styled.View``;
 
-const Item = styled.View`
+const Item = styled.TouchableOpacity`
   width: ${(props) => (props.current ? "100%" : "49%")};
   margin-bottom: ${(props) => (props.current ? "10px" : "0px")};
   position: relative;
@@ -61,9 +61,13 @@ const MoreText = styled.Text`
   font-weight: 700;
 `;
 
-const PopularSection = () => {
+const PopularSection = ({ navigation }) => {
   const [pickCount, setPickCount] = useState(1);
   const [pickData, setPickData] = useState([]);
+
+  const goReady = (item) => {
+    navigation.navigate("DetailReady", { item });
+  };
 
   const handleMoreBtn = () => {
     if (pickCount === 3) {
@@ -106,7 +110,7 @@ const PopularSection = () => {
               );
             }
             return (
-              <Item key={item.id}>
+              <Item key={item.id} onPress={() => goReady(item)}>
                 <ImageItem source={{ uri: item.img }} />
                 <DescItem>
                   <DescText>{item.name}</DescText>

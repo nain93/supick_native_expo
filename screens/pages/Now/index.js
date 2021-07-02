@@ -9,10 +9,10 @@ const Container = styled.ScrollView`
   flex: 1;
 `;
 
-function Now() {
+function Now({ navigation }) {
   return (
     <Container>
-      <PopularSection />
+      <PopularSection navigation={navigation} />
       <Ad dummyData={dummyData.result.Ad1.data[0]} />
       <FilterSection />
     </Container>

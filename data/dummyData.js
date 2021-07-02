@@ -17,6 +17,7 @@ const dummyData = {
           category: "팬/쇼핑몰",
           img: "https://tp.rmoa.net/data/dapp/EiuhJiQuWcgOWyxScCzo9bYzOZkXkC.jpg",
           link: "https://berrystore.co.kr/",
+          card: 1,
         },
         {
           id: 3,
@@ -24,6 +25,7 @@ const dummyData = {
           category: "종합/쇼핑몰",
           img: "https://cloudfront-ap-northeast-1.images.arcpublishing.com/chosun/CW44FNVZBFNU7IDC2UNOFUPS3A.jpg",
           link: "https://www.coupang.com/",
+          card: 2,
         },
         {
           id: 4,
@@ -38,6 +40,7 @@ const dummyData = {
           category: "캐주얼/게임",
           img: "https://www.cookierun-kingdom.com/og-ko.jpg",
           link: "https://www.cookierun-kingdom.com/ko/",
+          card: 1,
         },
         {
           id: 6,
@@ -45,6 +48,7 @@ const dummyData = {
           category: "블록체인/게임",
           img: "https://tp.rmoa.net/data/dapp/4x1mqqN9js840XllweleNAyQSTa8Hf.jpg",
           link: "https://rplanet.io/generator",
+          card: 2,
         },
         {
           id: 7,
@@ -59,6 +63,7 @@ const dummyData = {
           category: "종합/엔터",
           img: "https://th.bing.com/th/id/OIP.JbZzN4Z92F-ftI4efhcLmQHaDn?pid=ImgDet&rs=1",
           link: "https://www.smtown.com/",
+          card: 1,
         },
         {
           id: 9,
@@ -66,6 +71,7 @@ const dummyData = {
           category: "캐주얼/게임",
           img: "https://www.cookierun-kingdom.com/og-ko.jpg",
           link: "https://www.cookierun-kingdom.com/ko/",
+          card: 2,
         },
       ],
     },
