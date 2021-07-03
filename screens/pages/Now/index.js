@@ -3,7 +3,7 @@ import styled from "styled-components/native";
 import dummyData from "../../../data/dummyData";
 import Ad from "../../../Components/Ad";
 import FilterSection from "./FilterSection";
-import PopularSection from "./NowPopularSection";
+import NowPopularSection from "./NowPopularSection";
 
 const Container = styled.ScrollView`
   flex: 1;
@@ -12,7 +12,7 @@ const Container = styled.ScrollView`
 function Now({ navigation }) {
   return (
     <Container>
-      <PopularSection navigation={navigation} />
+      <NowPopularSection navigation={navigation} />
       <Ad dummyData={dummyData.result.Ad1.data[0]} />
       <FilterSection />
     </Container>
