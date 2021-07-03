@@ -63,11 +63,11 @@ const MyNavSection = ({ navigation }) => {
         </AccountBtn>
       </AccountBtnBox>
       <MyBtnBox>
-        <MyBtn style={{ marginTop: 20, marginBottom: 20 }}>
-          <MyNavText onPress={goToMyPick}>MY PICK</MyNavText>
+        <MyBtn onPress={goToMyPick} style={{ marginTop: 20, marginBottom: 20 }}>
+          <MyNavText>MY PICK</MyNavText>
         </MyBtn>
-        <MyBtn style={{ marginBottom: 20 }}>
-          <MyNavText onPress={goToMyFun}>MY FUN</MyNavText>
+        <MyBtn onPress={goToMyFun} style={{ marginBottom: 20 }}>
+          <MyNavText>MY FUN</MyNavText>
         </MyBtn>
       </MyBtnBox>
     </Container>
