@@ -64,8 +64,8 @@ const MoreText = styled.Text`
 const TestText = styled.Text`
   position: absolute;
   color: black;
-  top: 10;
-  left: 5;
+  top: 10px;
+  left: 5px;
   font-size: 20px;
   font-weight: 700;
   background-color: white;
