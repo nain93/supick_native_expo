@@ -72,7 +72,9 @@ function Wallet({ navigation }) {
           alignItems: "center",
         }}
       >
-        <Text>환영합니다! PICKnPiCK에서 사용하실 닉네임을 설정해주세요.</Text>
+        <Text>
+          {"환영합니다!\nPICKnPiCK에서 사용하실 닉네임을\n설정해주세요."}
+        </Text>
         <TextInput
           ref={nickNameRef}
           placeholder="닉네임"
