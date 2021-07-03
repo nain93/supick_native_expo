@@ -2,34 +2,30 @@ import React, { useEffect, useRef } from "react";
 import styled from "styled-components/native";
 import { Keyboard, Platform, TouchableWithoutFeedback } from "react-native";
 import { useForm } from "react-hook-form";
+import { ErrorMessage } from "@hookform/error-message";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { colors } from "../Style";
-
-const Container = styled.View`
-  flex: 1;
-  background-color: ${colors.main};
-  justify-content: center;
-  align-items: center;
-`;
 
 const Text = styled.Text`
   width: 70%;
   text-align: center;
+  margin: 20px 0;
 `;
 
 const TextInput = styled.TextInput`
   width: 70%;
   height: 50px;
-  border-radius: 20px;
+  border-radius: 10px;
   background-color: white;
-  margin: 20px 0;
+  padding: 0 10px;
 `;
 
 const LinkBox = styled.TouchableOpacity`
-  margin-top: 2%;
+  margin-top: 20px;
   width: 70%;
   height: 50px;
   padding: 13px 10px;
-  border-radius: 20px;
+  border-radius: 10px;
   border: 1px solid white;
 `;
 
@@ -38,23 +34,29 @@ const NextLink = styled.Text`
   color: white;
 `;
 
+const ErrorText = styled.Text`
+  margin-top: 5px;
+  color: red;
+`;
+
 function Wallet({ navigation }) {
   const dismissKeyBoard = () => {
     Keyboard.dismiss();
   };
 
   const nickNameRef = useRef();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    setValue,
+  } = useForm();
 
-  const { register, handleSubmit, setValue } = useForm();
   const onSubmit = (data) => navigation.navigate("Home");
 
   useEffect(() => {
-    register("nickname", { required: true });
+    register("nickname", { required: "닉네임을 입력해주세요" });
   }, [register]);
-
-  // useEffect(() => {
-  //   nickNameRef?.current?.focus();
-  // }, []);
 
   return (
     <TouchableWithoutFeedback
@@ -62,7 +64,14 @@ function Wallet({ navigation }) {
       onPress={dismissKeyBoard}
       disabled={Platform.OS === "web"}
     >
-      <Container>
+      <KeyboardAwareScrollView
+        style={{ backgroundColor: colors.main }}
+        contentContainerStyle={{
+          height: 700,
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         <Text>환영합니다! PICKnPiCK에서 사용하실 닉네임을 설정해주세요.</Text>
         <TextInput
           ref={nickNameRef}
@@ -73,10 +82,16 @@ function Wallet({ navigation }) {
           autoCapitalize={"none"}
           returnKeyLabel="next"
         />
+
+        <ErrorMessage
+          errors={errors}
+          name="nickname"
+          render={({ message }) => <ErrorText>{message}</ErrorText>}
+        />
         <LinkBox onPress={handleSubmit(onSubmit)}>
           <NextLink>다음</NextLink>
         </LinkBox>
-      </Container>
+      </KeyboardAwareScrollView>
     </TouchableWithoutFeedback>
   );
 }

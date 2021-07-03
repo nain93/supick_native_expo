@@ -21,14 +21,14 @@ const ConnectSection = styled.View`
 
 const GoToHome = styled.TouchableOpacity`
   border: 1px solid white;
-  border-radius: 40px;
+  border-radius: 10px;
   padding: 15px 30px;
   width: 300px;
 `;
 
 const GoToWallet = styled.TouchableOpacity`
   border: 1px solid white;
-  border-radius: 40px;
+  border-radius: 10px;
   margin-top: 5%;
   margin-bottom: 150px;
   padding: 15px 30px;

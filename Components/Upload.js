@@ -5,10 +5,6 @@ import { Keyboard, Platform, TouchableWithoutFeedback } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { useForm } from "react-hook-form";
 
-const Container = styled.View`
-  padding: 0 20px;
-`;
-
 const TitleInput = styled.TextInput`
   width: 100%;
   height: 10%;
@@ -95,10 +91,6 @@ const Upload = () => {
   const CotentRef = useRef();
   const TagRef = useRef();
 
-  // useEffect(() => {
-  //   TitleRef?.current?.focus();
-  // }, []);
-
   useEffect(() => {
     register("title", { required: true });
     register("content", { required: true });
@@ -114,49 +106,48 @@ const Upload = () => {
       onPress={dismissKeyBoard}
       disabled={Platform.OS === "web"}
     >
-      <KeyboardAwareScrollView contentContainerStyle={{ height: 700 }}>
-        <Container>
-          <TitleInput
-            ref={TitleRef}
-            placeholder="제목"
-            placeholderTextColor="rgba(0,0,0,0.4)"
-            autoCapitalize={"none"}
-            returnKeyType="next"
-            onChangeText={(text) => setValue("title", text)}
-            onSubmitEditing={() => handleFocus(CotentRef)}
-          />
-
-          <BtnBox>
-            <ImgBtn>
-              <ImgText>이미지</ImgText>
-            </ImgBtn>
-            <GifBtn>
-              <GifText>GIF</GifText>
-            </GifBtn>
-          </BtnBox>
-          <ContentInput
-            ref={CotentRef}
-            placeholder="내용"
-            placeholderTextColor="rgba(0,0,0,0.4)"
-            autoCapitalize={"none"}
-            returnKeyLabel="next"
-            onChangeText={(text) => setValue("content", text)}
-            onSubmitEditing={() => handleFocus(TagRef)}
-          />
-          <TagInput
-            ref={TagRef}
-            placeholder="태그"
-            placeholderTextColor="rgba(0,0,0,0.4)"
-            autoCapitalize={"none"}
-            returnKeyLabel="next"
-            onChangeText={(text) => setValue("tag", text)}
-            onSubmitEditing={handleSubmit(onSubmit)}
-          />
-
-          <AddBtn onPress={handleSubmit(onSubmit)}>
-            <AddText>등록</AddText>
-          </AddBtn>
-        </Container>
+      <KeyboardAwareScrollView
+        style={{ paddingLeft: 20, paddingRight: 20 }}
+        contentContainerStyle={{ height: 700 }}
+      >
+        <TitleInput
+          ref={TitleRef}
+          placeholder="제목"
+          placeholderTextColor="rgba(0,0,0,0.4)"
+          autoCapitalize={"none"}
+          returnKeyType="next"
+          onChangeText={(text) => setValue("title", text)}
+          onSubmitEditing={() => handleFocus(CotentRef)}
+        />
+        <BtnBox>
+          <ImgBtn>
+            <ImgText>이미지</ImgText>
+          </ImgBtn>
+          <GifBtn>
+            <GifText>GIF</GifText>
+          </GifBtn>
+        </BtnBox>
+        <ContentInput
+          ref={CotentRef}
+          placeholder="내용"
+          placeholderTextColor="rgba(0,0,0,0.4)"
+          autoCapitalize={"none"}
+          returnKeyLabel="next"
+          onChangeText={(text) => setValue("content", text)}
+          onSubmitEditing={() => handleFocus(TagRef)}
+        />
+        <TagInput
+          ref={TagRef}
+          placeholder="태그"
+          placeholderTextColor="rgba(0,0,0,0.4)"
+          autoCapitalize={"none"}
+          returnKeyLabel="next"
+          onChangeText={(text) => setValue("tag", text)}
+          onSubmitEditing={handleSubmit(onSubmit)}
+        />
+        <AddBtn onPress={handleSubmit(onSubmit)}>
+          <AddText>등록</AddText>
+        </AddBtn>
       </KeyboardAwareScrollView>
     </TouchableWithoutFeedback>
   );

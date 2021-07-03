@@ -3,7 +3,7 @@ import AppLoading from "expo-app-loading";
 import * as Font from "expo-font";
 import { Ionicons } from "@expo/vector-icons";
 import { Asset } from "expo-asset";
-import LoggedOutNav from "./navigators/LoggedOutNav";
+import GlobalNav from "./navigators/GlobalNav";
 import landing from "./assets/landing.png";
 import { AppearanceProvider } from "react-native-appearance";
 import { Appearance } from "react-native";
@@ -34,7 +34,7 @@ export default function App() {
 
   return (
     <AppearanceProvider>
-      <LoggedOutNav />
+      <GlobalNav />
     </AppearanceProvider>
   );
 }
