@@ -65,7 +65,7 @@ function Wallet({ navigation }) {
       disabled={Platform.OS === "web"}
     >
       <KeyboardAwareScrollView
-        style={{ backgroundColor: colors.main }}
+        style={{ backgroundColor: colors.main, flex: 1 }}
         contentContainerStyle={{
           height: 700,
           justifyContent: "center",
