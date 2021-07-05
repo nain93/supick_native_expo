@@ -13,6 +13,7 @@ import DetailTinderPick from "../screens/pages/Detail/DetailTinderPick";
 import DetailNormalPick from "../screens/pages/Detail/DetailNormalPick";
 import { colors } from "../Style";
 import TinderResult from "../screens/pages/Result/TinderResult";
+import NormalResult from "../screens/pages/Result/NormalResult";
 import Exchange from "../screens/pages/My/MyNav/Exchange";
 import Charge from "../screens/pages/My/MyNav/Charge";
 import History from "../screens/pages/My/MyNav/History";
@@ -119,7 +120,7 @@ function GlobalNav() {
               shadowOpacity: 0, //ios
             },
           }}
-          component={TinderResult}
+          component={NormalResult}
         />
         <Stack.Screen
           name="ExChange"

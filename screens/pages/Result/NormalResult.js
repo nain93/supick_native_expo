@@ -5,7 +5,7 @@ const NormalResult = ({ navigation }) => {
   return (
     <View>
       <Text>NormalResult</Text>
-      <TouchableOpacity onPress={navigation.goback(1)}>
+      <TouchableOpacity>
         <Text>뒤로가기</Text>
       </TouchableOpacity>
     </View>

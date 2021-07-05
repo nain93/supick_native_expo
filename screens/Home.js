@@ -22,6 +22,7 @@ function Home() {
         swipeEnabled={true}
         tabBarOptions={{
           activeTintColor: "#eee",
+          inactiveTintColor: "#eee",
           labelStyle: { fontSize: 15 },
           style: {
             backgroundColor: colors.main,

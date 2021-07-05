@@ -55,7 +55,7 @@ const BtnText = styled.Text`
 
 const renderItem = (item) => {
   return (
-    <SlideBtn>
+    <SlideBtn activeOpacity={1}>
       <SlideImg source={{ uri: item?.img }} />
     </SlideBtn>
   );
