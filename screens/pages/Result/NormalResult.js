@@ -1,14 +1,17 @@
 import React from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { Text, TouchableOpacity } from "react-native";
+import styled from "styled-components/native";
 
-const NormalResult = ({ navigation }) => {
+const Container = styled.View``;
+
+const NormalResult = () => {
   return (
-    <View>
+    <Container>
       <Text>NormalResult</Text>
       <TouchableOpacity>
         <Text>뒤로가기</Text>
       </TouchableOpacity>
-    </View>
+    </Container>
   );
 };
 
