@@ -1,15 +1,23 @@
 import React from "react";
-import { Text, TouchableOpacity } from "react-native";
+import { Text, TouchableOpacity, Button } from "react-native";
 import styled from "styled-components/native";
 
 const Container = styled.View``;
 
-const NormalResult = () => {
+const NormalResult = ({ navigation: { goBack }, route }) => {
+  const { onGoBack } = route.params;
+
   return (
     <Container>
       <Text>NormalResult</Text>
       <TouchableOpacity>
-        <Text>뒤로가기</Text>
+        <Button
+          onPress={() => {
+            goBack();
+            onGoBack();
+          }}
+          title="Go back from ProfileScreen"
+        />
       </TouchableOpacity>
     </Container>
   );

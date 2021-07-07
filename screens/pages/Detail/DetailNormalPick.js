@@ -19,6 +19,7 @@ const QaText = styled.Text`
 const PickBtnBox = styled.View`
   width: 100%;
   align-items: center;
+  margin-top: 20%;
 `;
 
 const PickBtn = styled.TouchableOpacity`
@@ -47,10 +48,17 @@ const CountText = styled.Text`
 const DetailNormalPick = ({ navigation }) => {
   const [pickCount, setPickCount] = useState(1);
 
+  const refresh = () => {
+    if (pickCount === 8) {
+      setPickCount(1);
+      return;
+    }
+  };
+
   const handleAPick = () => {
     if (pickCount === 8) {
       navigation.navigate("NormalResult", {
-        navigation,
+        onGoBack: () => refresh(),
       });
       return;
     }
@@ -61,7 +69,9 @@ const DetailNormalPick = ({ navigation }) => {
 
   const handleBPick = () => {
     if (pickCount === 8) {
-      navigation.navigate("NormalResult");
+      navigation.navigate("NormalResult", {
+        onGoBack: () => refresh(),
+      });
       return;
     }
     // todo B pick state 저장
@@ -71,13 +81,15 @@ const DetailNormalPick = ({ navigation }) => {
 
   const isFocused = useIsFocused();
 
-  useEffect(() => {
-    navigation.addListener("NormalResult", () => {
-      if (pickCount === 8) {
-        setPickCount(1);
-      }
-    });
-  }, [pickCount]);
+  // useEffect(() => {
+  //   refresh();
+  //   if (pickCount === 8) {
+  //     const willFocus = navigation.addListener("NormalResult", () => {
+  //       refresh();
+  //     });
+  //     return willFocus;
+  //   }
+  // }, []);
 
   return (
     <Container>
