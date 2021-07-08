@@ -4,7 +4,7 @@ import {
   createStackNavigator,
   TransitionPresets,
 } from "@react-navigation/stack";
-import Welcome from "../screens/Welcome";
+import Landing from "../screens/Landing";
 import Home from "../screens/Home";
 import Wallet from "../screens/Wallet";
 import Upload from "../Components/Upload";
@@ -30,12 +30,12 @@ function GlobalNav() {
     <NavigationContainer>
       <Stack.Navigator screenOptions={TransitionScreenOptions}>
         <Stack.Screen
-          name="Welcome"
+          name="Landing"
           options={{
             headerTitle: false,
             headerTransparent: true,
           }}
-          component={Welcome}
+          component={Landing}
         />
         <Stack.Screen
           name="Wallet"

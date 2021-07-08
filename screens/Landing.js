@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components/native";
-import landing from "../assets/landing.png";
+// import landing from "../assets/landing.png";
 import Carousel from "react-native-snap-carousel";
 import dummyData from "../data/dummyData";
 import { colors } from "../Style";
@@ -11,39 +11,30 @@ const Container = styled.View`
   align-items: center;
 `;
 
-const Logo = styled.Image`
-  max-width: 100%;
-`;
+// const Logo = styled.Image`
+//   max-width: 100%;
+// `;
 
 const ConnectSection = styled.View`
   padding: 0 20px;
 `;
 
-const GoToHome = styled.TouchableOpacity`
+const GoToStyle = styled.TouchableOpacity`
   border: 1px solid white;
   border-radius: 10px;
   padding: 15px 30px;
   width: 300px;
 `;
 
-const GoToWallet = styled.TouchableOpacity`
-  border: 1px solid white;
-  border-radius: 10px;
+const GoToHome = styled(GoToStyle)``;
+
+const GoToWallet = styled(GoToStyle)`
   margin-top: 5%;
   margin-bottom: 150px;
-  padding: 15px 30px;
   background-color: white;
-  width: 300px;
 `;
 
-const HomeText = styled.Text`
-  color: white;
-  font-size: 15px;
-  text-align: center;
-`;
-
-const WalletText = styled.Text`
-  color: #ffc000;
+const ConnectText = styled.Text`
   font-size: 15px;
   text-align: center;
 `;
@@ -65,7 +56,7 @@ const renderItem = ({ item }) => {
   );
 };
 
-function Welcome({ navigation }) {
+function Landing({ navigation }) {
   const goToHome = () => navigation.navigate("Home");
   const goToWallet = () => navigation.navigate("Wallet");
 
@@ -82,15 +73,19 @@ function Welcome({ navigation }) {
       />
       <ConnectSection>
         <GoToHome onPress={goToHome}>
-          <HomeText>나중에 월렛 생성하기</HomeText>
+          <ConnectText style={{ color: "white" }}>
+            나중에 월렛 생성하기
+          </ConnectText>
         </GoToHome>
 
         <GoToWallet onPress={goToWallet}>
-          <WalletText>지금 바로 월렛 연동</WalletText>
+          <ConnectText style={{ color: colors.main }}>
+            지금 바로 월렛 연동
+          </ConnectText>
         </GoToWallet>
       </ConnectSection>
     </Container>
   );
 }
 
-export default Welcome;
+export default Landing;
