@@ -1,9 +1,10 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useCallback } from "react";
 import styled from "styled-components/native";
 import { colors, Title } from "../../../Style";
 import dummyData from "../../../data/dummyData";
 import Swiper from "react-native-deck-swiper";
 import { Ionicons } from "@expo/vector-icons";
+import { useFocusEffect } from "@react-navigation/native";
 
 const Container = styled.View`
   flex: 1;
@@ -65,6 +66,13 @@ const DetailTinderPick = ({ navigation }) => {
   const [swipeCount, setSwipeCount] = useState(1);
   const swiper = useRef();
 
+  const refresh = () => {
+    if (swipeCount === 8) {
+      setSwipeCount(1);
+      return;
+    }
+  };
+
   const swipeLeft = () => {
     swiper?.current?.swipeLeft();
   };
@@ -72,6 +80,16 @@ const DetailTinderPick = ({ navigation }) => {
   const swipeRight = () => {
     swiper?.current?.swipeRight();
   };
+
+  // useFocusEffect(
+  //   useCallback(() => {
+  //     if (swipeCount === 8) {
+  //       setSwipeCount(1);
+  //       return;
+  //     }
+  //     return () => refresh();
+  //   }, [swipeCount])
+  // );
 
   return (
     <Container>

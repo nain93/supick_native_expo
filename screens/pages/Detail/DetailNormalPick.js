@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useCallback } from "react";
 import styled from "styled-components/native";
 import { colors, Title } from "../../../Style";
-import { useIsFocused } from "@react-navigation/native";
+import { useIsFocused, useFocusEffect } from "@react-navigation/native";
 
 const Container = styled.View`
   flex: 1;
@@ -57,9 +57,7 @@ const DetailNormalPick = ({ navigation }) => {
 
   const handleAPick = () => {
     if (pickCount === 8) {
-      navigation.navigate("NormalResult", {
-        onGoBack: () => refresh(),
-      });
+      navigation.navigate("NormalResult");
       return;
     }
     // todo A pick state 저장
@@ -69,9 +67,7 @@ const DetailNormalPick = ({ navigation }) => {
 
   const handleBPick = () => {
     if (pickCount === 8) {
-      navigation.navigate("NormalResult", {
-        onGoBack: () => refresh(),
-      });
+      navigation.navigate("NormalResult");
       return;
     }
     // todo B pick state 저장
@@ -79,17 +75,11 @@ const DetailNormalPick = ({ navigation }) => {
     return;
   };
 
-  const isFocused = useIsFocused();
-
-  // useEffect(() => {
-  //   refresh();
-  //   if (pickCount === 8) {
-  //     const willFocus = navigation.addListener("NormalResult", () => {
-  //       refresh();
-  //     });
-  //     return willFocus;
-  //   }
-  // }, []);
+  useFocusEffect(
+    useCallback(() => {
+      return () => refresh();
+    }, [pickCount])
+  );
 
   return (
     <Container>
