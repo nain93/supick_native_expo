@@ -4,7 +4,7 @@ import { colors, Title } from "../../../Style";
 import dummyData from "../../../data/dummyData";
 import Swiper from "react-native-deck-swiper";
 import { Ionicons } from "@expo/vector-icons";
-import { useFocusEffect } from "@react-navigation/native";
+import { useFocusEffect, CommonActions } from "@react-navigation/native";
 
 const Container = styled.View`
   flex: 1;
@@ -83,13 +83,12 @@ const DetailTinderPick = ({ navigation }) => {
 
   // useFocusEffect(
   //   useCallback(() => {
-  //     if (swipeCount === 8) {
-  //       setSwipeCount(1);
-  //       return;
-  //     }
-  //     return () => refresh();
+  //     renderItem();
+  //     return () => renderItem();
   //   }, [swipeCount])
   // );
+
+  // todo API 재요청
 
   return (
     <Container>
