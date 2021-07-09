@@ -5,6 +5,8 @@ import { useForm } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { colors } from "../Style";
+import { useDispatch } from "react-redux";
+import { logIn, userNickName } from "../reducers/userReducer";
 
 const Text = styled.Text`
   width: 70%;
@@ -44,6 +46,8 @@ function Wallet({ navigation }) {
     Keyboard.dismiss();
   };
 
+  const dispatch = useDispatch();
+
   const nickNameRef = useRef();
   const {
     register,
@@ -52,7 +56,13 @@ function Wallet({ navigation }) {
     setValue,
   } = useForm();
 
-  const onSubmit = (data) => navigation.navigate("Home");
+  const onSubmit = (data) => {
+    const { nickname } = data;
+    dispatch(userNickName(nickname));
+    dispatch(logIn(true));
+    navigation.navigate("Home");
+    // * nickname 저장, 로그인 true
+  };
 
   useEffect(() => {
     register("nickname", { required: "닉네임을 입력해주세요" });

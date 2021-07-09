@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components/native";
 import dummyData from "../../../data/dummyData";
 import { colors } from "../../../Style";
@@ -36,11 +37,13 @@ const IconText = styled.Text`
 `;
 
 const ProfileSection = () => {
+  const { isLogin, nickName } = useSelector((state) => state.userReducer);
+
   return (
     <Container>
       <ProfileImg source={{ uri: dummyData.result.List7.data[0].img }} />
       <ProfileDesc>
-        <ProfileId>빛나는 루카스</ProfileId>
+        <ProfileId>{nickName}</ProfileId>
         <ProfileAdress>SW1q2w3e...2q2w5e</ProfileAdress>
         <IconBox>
           <IconText>180</IconText>
