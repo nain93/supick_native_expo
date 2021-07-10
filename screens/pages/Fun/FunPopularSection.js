@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components/native";
 import { ItemBox, Title, colors } from "../../../Style";
-import Icon from "react-native-vector-icons/Ionicons";
+import { Ionicons } from "@expo/vector-icons";
 import dummyData from "../../../data/dummyData";
 
 const Container = styled.View``;
@@ -92,11 +92,11 @@ const FunPopularSection = () => {
                 <DescText>{item.name}</DescText>
                 <DescText>
                   <IconView>
-                    <Icon name="heart" size={20} color="#eee" />
+                    <Ionicons name="heart" size={20} color="#eee" />
                     <IconText>180</IconText>
                   </IconView>
                   <IconView>
-                    <Icon name="arrow-undo-sharp" size={20} color="#eee" />
+                    <Ionicons name="arrow-undo-sharp" size={20} color="#eee" />
                     <IconText>60</IconText>
                   </IconView>
                 </DescText>

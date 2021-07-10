@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components/native";
 import { ItemBox, Title, colors } from "../../../Style";
-import Icon from "react-native-vector-icons/Ionicons";
+import { Ionicons } from "@expo/vector-icons";
 import dummyData from "../../../data/dummyData";
 
 const Container = styled.View``;
@@ -184,11 +184,15 @@ function FilterSection() {
                   <DescText>{item.name}</DescText>
                   <DescText>
                     <IconView>
-                      <Icon name="heart" size={15} color="red" />
+                      <Ionicons name="heart" size={15} color="red" />
                       <IconText>180</IconText>
                     </IconView>
                     <IconView>
-                      <Icon name="arrow-undo-sharp" size={15} color="black" />
+                      <Ionicons
+                        name="arrow-undo-sharp"
+                        size={15}
+                        color="black"
+                      />
                       <IconText>60</IconText>
                     </IconView>
                   </DescText>

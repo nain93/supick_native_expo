@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components/native";
 import { colors, Title, ItemBox } from "../../../Style";
 import dummyData from "../../../data/dummyData";
-import Icon from "react-native-vector-icons/Ionicons";
+import { Ionicons } from "@expo/vector-icons";
 
 const Container = styled.View``;
 
@@ -92,11 +92,11 @@ const FunListSection = () => {
               </ItemInfoBox>
               <ItemIcon>
                 <IconView>
-                  <Icon name="heart" size={15} color="red" />
+                  <Ionicons name="heart" size={15} color="red" />
                   <IconText>180</IconText>
                 </IconView>
                 <IconView>
-                  <Icon name="arrow-undo-sharp" size={15} color="black" />
+                  <Ionicons name="arrow-undo-sharp" size={15} color="black" />
                   <IconText>60</IconText>
                 </IconView>
               </ItemIcon>
